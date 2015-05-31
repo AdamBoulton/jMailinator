@@ -40,7 +40,7 @@ public class Mailinator {
      * @param apikey - Mailinator API key
      * @param emailAddress - Email address of the account
      * @return Array of messages from the inbox
-     * @throws IOException
+     * @throws IOException When invalid response, for example using an invalid API key
      */
     public static ArrayList<InboxMessage> getInboxMessages(String apikey, String emailAddress) throws IOException {
 

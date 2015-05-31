@@ -2,7 +2,15 @@ Welcome to the jMailinator wiki!
 
 Mailinator REST API wrapper in Java, http://mailinator.com/apidocs.jsp
 
-## Getting started - code examples
+## Getting started
+
+Mailinator provide a rich set of information for their RESTFUL API. jMailinator provides a rich Java wrapper around the API, allowing for quick and easy integration. 
+
+### Token
+
+Create a Mailinator account, login, and find your token at https://www.mailinator.com/settings.jsp
+
+## Code Examples
 
 Access to an inbox and print the details of an inbox message
 
