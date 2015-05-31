@@ -8,7 +8,7 @@ Mailinator REST API wrapper in Java, http://mailinator.com/apidocs.jsp
 
 ## Contributing
 
-Fork it ( https://github.com/ainformatico/mailinator/fork )
+Fork it ( https://github.com/AdamBoulton/jMailinator/fork )
 Create your feature branch (git checkout -b my-new-feature)
 Commit your changes (git commit -am 'Add some feature')
 Push to the branch (git push origin my-new-feature)
@@ -16,7 +16,7 @@ Create a new Pull Request
 
 ## License
 
-Copyright (c) 2014 Alejandro Dev.
+Copyright (c) 2015 Adam Boulton Dev.
 
 MIT License
 
