@@ -23,14 +23,17 @@ import org.json.simple.JSONValue;
  */
 public class Mailinator {
 
-    //{"error":"rate limiter reached"}
     private static final String MAILINATOR_API_ENDPOINT = "https://api.mailinator.com/api";
     private static final String MAILINATOR_INBOX_TEMPLATE_URL = MAILINATOR_API_ENDPOINT + "/inbox?token=%s&to=%s";
     private static final String MAILINATOR_EMAIL_TEMPLATE_URL = MAILINATOR_API_ENDPOINT + "/email?token=%s&msgid=%s";
 
+    //No instantiation
     private Mailinator() {
     }
 
+    /*
+     ===== PUBLIC METHODS =====
+     */
     /**
      * Retrieves all messages from an inbox
      *
@@ -57,6 +60,27 @@ public class Mailinator {
     }
 
     /**
+     * Once you have the email id's from a given inbox query, you can retrieve
+     * the full email.
+     *
+     * @param apikey
+     * @param emailId
+     * @return
+     * @throws java.io.IOException
+     */
+    public static Email getEmail(String apikey, String emailId) throws IOException {
+
+        String emailUrl = String.format(MAILINATOR_EMAIL_TEMPLATE_URL, apikey, emailId);
+        Reader reader = getResponse(emailUrl);
+
+        JSONObject obj = (JSONObject) JSONValue.parse(reader);
+        return createEmailFrom(obj);
+    }
+
+    /*
+     ===== PRIVATE METHODS =====
+     */
+    /**
      * Invokes the Mailnator API endpoint for the Inbox.
      *
      * @param apikey
@@ -68,23 +92,6 @@ public class Mailinator {
         String inboxUrl = String.format(MAILINATOR_INBOX_TEMPLATE_URL, apikey, emailAddress);
         Reader reader = getResponse(inboxUrl);
         return reader;
-    }
-
-    /**
-     * Once you have the email id's from a given inbox query, you can retrieve
-     * the full email.
-     *
-     * @param apikey
-     * @param emailId
-     * @throws java.io.IOException
-     */
-    public static Email getEmail(String apikey, String emailId) throws IOException {
-
-        String emailUrl = String.format(MAILINATOR_EMAIL_TEMPLATE_URL, apikey, emailId);
-        Reader reader = getResponse(emailUrl);
-
-        JSONObject obj = (JSONObject) JSONValue.parse(reader);
-        return createEmailFrom(obj);
     }
 
     private static Reader getResponse(String url) throws MalformedURLException, IOException {
@@ -137,7 +144,7 @@ public class Mailinator {
         emailMsg.setFromFull(jsonDataSection.get("fromfull").toString());
 
         //headers
-        JSONObject jsonHeaders = (JSONObject) jsonDataSection.get("headers");      
+        JSONObject jsonHeaders = (JSONObject) jsonDataSection.get("headers");
         emailMsg.setHeaders(builderHeaders(jsonHeaders.entrySet()));
 
         //Parts / content
@@ -146,13 +153,13 @@ public class Mailinator {
 
         for (Object jsonPart1 : jsonParts) {
             EmailPart emailPart = emailMsg.new EmailPart();
-            
+
             JSONObject jsonPart = (JSONObject) jsonPart1;
-            JSONObject jsonPartHeaders = (JSONObject)jsonPart.get("headers");
+            JSONObject jsonPartHeaders = (JSONObject) jsonPart.get("headers");
             emailPart.setHeaders(builderHeaders(jsonPartHeaders.entrySet()));
-             
+
             emailPart.setBody(jsonPart.get("body").toString());
-            
+
             emailMsg.getEmailParts().add(emailPart);
         }
 
@@ -165,7 +172,7 @@ public class Mailinator {
         for (Entry header : jsonHeaderEntries) {
             headers.put(header.getKey().toString().trim(), header.getValue().toString().trim());
         }
-        
+
         return headers;
     }
 

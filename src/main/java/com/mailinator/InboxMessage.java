@@ -92,8 +92,10 @@ public class InboxMessage {
 
     @Override
     public String toString() {
-        return "Message{" + "seconds_ago=" + secondsAgo + ", to=" + to + ", id=" + id + ", time=" + time + ", subject=" + subject + ", fromfull=" + fromFull + ", been_read=" + beenRead + ", from=" + from + ", ip=" + ip + '}';
+        return "InboxMessage{" + "secondsAgo=" + secondsAgo + ", to=" + to + ", id=" + id + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", beenRead=" + beenRead + ", from=" + from + ", ip=" + ip + '}';
     }
+
+
 
 
 }

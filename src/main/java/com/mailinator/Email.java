@@ -19,7 +19,7 @@ public class Email {
     private int apiEmailFetchesLeft;
     private int forwardsLeft;
 
-    //From the data section in the JSON response
+    //Represents the data section in the JSON feed
     private long secondsAgo;
     private String id;
     private String to;
@@ -27,10 +27,10 @@ public class Email {
     private String subject;
     private String fromFull;
 
-    //The headers in the data section
+    //Represents the headers in the data section on the root of a message JSON feed
     private HashMap<String, String> headers;
 
-    //The parts / content of the email
+    //Represents the parts section of the email JSON feed
     private Set<EmailPart> emailParts = new HashSet<>();
 
     public int getApiInboxFetchesLeft() {
@@ -121,11 +121,6 @@ public class Email {
         this.emailParts = emailParts;
     }
 
-    @Override
-    public String toString() {
-        return "Email{" + "apiInboxFetchesLeft=" + apiInboxFetchesLeft + ", apiEmailFetchesLeft=" + apiEmailFetchesLeft + ", forwardsLeft=" + forwardsLeft + ", secondsAgo=" + secondsAgo + ", id=" + id + ", to=" + to + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", headers=" + headers + '}';
-    }
-
     public class EmailPart {
 
         private HashMap<String, String> headers;
@@ -148,4 +143,11 @@ public class Email {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "Email{" + "apiInboxFetchesLeft=" + apiInboxFetchesLeft + ", apiEmailFetchesLeft=" + apiEmailFetchesLeft + ", forwardsLeft=" + forwardsLeft + ", secondsAgo=" + secondsAgo + ", id=" + id + ", to=" + to + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", headers=" + headers + ", emailParts=" + emailParts + '}';
+    }
+    
+    
 }
