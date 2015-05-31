@@ -37,7 +37,7 @@ public class Email {
         return apiInboxFetchesLeft;
     }
 
-    public void setApiInboxFetchesLeft(int apiInboxFetchesLeft) {
+    protected void setApiInboxFetchesLeft(int apiInboxFetchesLeft) {
         this.apiInboxFetchesLeft = apiInboxFetchesLeft;
     }
 
@@ -45,7 +45,7 @@ public class Email {
         return apiEmailFetchesLeft;
     }
 
-    public void setApiEmailFetchesLeft(int apiEmailFetchesLeft) {
+    protected void setApiEmailFetchesLeft(int apiEmailFetchesLeft) {
         this.apiEmailFetchesLeft = apiEmailFetchesLeft;
     }
 
@@ -53,7 +53,7 @@ public class Email {
         return forwardsLeft;
     }
 
-    public void setForwardsLeft(int forwardsLeft) {
+    protected void setForwardsLeft(int forwardsLeft) {
         this.forwardsLeft = forwardsLeft;
     }
 
@@ -61,7 +61,7 @@ public class Email {
         return secondsAgo;
     }
 
-    public void setSecondsAgo(long secondsAgo) {
+    protected void setSecondsAgo(long secondsAgo) {
         this.secondsAgo = secondsAgo;
     }
 
@@ -69,7 +69,7 @@ public class Email {
         return id;
     }
 
-    public void setId(String id) {
+    protected void setId(String id) {
         this.id = id;
     }
 
@@ -77,7 +77,7 @@ public class Email {
         return to;
     }
 
-    public void setTo(String to) {
+    protected void setTo(String to) {
         this.to = to;
     }
 
@@ -85,7 +85,7 @@ public class Email {
         return time;
     }
 
-    public void setTime(long time) {
+    protected void setTime(long time) {
         this.time = time;
     }
 
@@ -93,7 +93,7 @@ public class Email {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    protected void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -101,7 +101,7 @@ public class Email {
         return fromFull;
     }
 
-    public void setFromFull(String fromFull) {
+    protected void setFromFull(String fromFull) {
         this.fromFull = fromFull;
     }
 
@@ -109,7 +109,7 @@ public class Email {
         return headers;
     }
 
-    public void setHeaders(HashMap<String, String> headers) {
+    protected void setHeaders(HashMap<String, String> headers) {
         this.headers = headers;
     }
 
@@ -117,7 +117,7 @@ public class Email {
         return emailParts;
     }
 
-    public void setEmailParts(Set<EmailPart> emailParts) {
+    protected void setEmailParts(Set<EmailPart> emailParts) {
         this.emailParts = emailParts;
     }
 
@@ -130,7 +130,7 @@ public class Email {
             return headers;
         }
 
-        public void setHeaders(HashMap<String, String> headers) {
+        protected void setHeaders(HashMap<String, String> headers) {
             this.headers = headers;
         }
 
@@ -138,7 +138,7 @@ public class Email {
             return body;
         }
 
-        public void setBody(String body) {
+        protected void setBody(String body) {
             this.body = body;
         }
 

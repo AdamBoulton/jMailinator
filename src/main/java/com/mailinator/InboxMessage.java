@@ -22,7 +22,7 @@ public class InboxMessage {
         return secondsAgo;
     }
 
-    public void setSeconds_ago(long seconds_ago) {
+    protected void setSeconds_ago(long seconds_ago) {
         this.secondsAgo = seconds_ago;
     }
 
@@ -30,7 +30,7 @@ public class InboxMessage {
         return id;
     }
 
-    public void setId(String id) {
+    protected void setId(String id) {
         this.id = id;
     }
 
@@ -38,7 +38,7 @@ public class InboxMessage {
         return time;
     }
 
-    public void setTime(long time) {
+    protected void setTime(long time) {
         this.time = time;
     }
 
@@ -46,7 +46,7 @@ public class InboxMessage {
         return subject;
     }
 
-    public void setSubject(String subject) {
+    protected void setSubject(String subject) {
         this.subject = subject;
     }
 
@@ -54,7 +54,7 @@ public class InboxMessage {
         return fromFull;
     }
 
-    public void setFromfull(String fromfull) {
+    protected void setFromfull(String fromfull) {
         this.fromFull = fromfull;
     }
 
@@ -62,7 +62,7 @@ public class InboxMessage {
         return beenRead;
     }
 
-    public void setBeen_read(boolean been_read) {
+    protected void setBeen_read(boolean been_read) {
         this.beenRead = been_read;
     }
 
@@ -70,7 +70,7 @@ public class InboxMessage {
         return from;
     }
 
-    public void setFrom(String from) {
+    protected void setFrom(String from) {
         this.from = from;
     }
 
@@ -78,7 +78,7 @@ public class InboxMessage {
         return ip;
     }
 
-    public void setIp(String ip) {
+    protected void setIp(String ip) {
         this.ip = ip;
     }
 
@@ -86,7 +86,7 @@ public class InboxMessage {
         return to;
     }
 
-    public void setTo(String to) {
+    protected void setTo(String to) {
         this.to = to;
     }
 
