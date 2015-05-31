@@ -2,7 +2,7 @@ Welcome to the jMailinator wiki!
 
 Mailinator REST API wrapper in Java, http://mailinator.com/apidocs.jsp
 
-## Getting started
+## Getting started - code examples
 
 Access to an inbox and print the details of an inbox message
 
