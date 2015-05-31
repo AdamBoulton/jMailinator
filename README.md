@@ -7,7 +7,9 @@ Mailinator REST API wrapper in Java, http://mailinator.com/apidocs.jsp
 Access to an inbox and print the details of an inbox message
 
 ```java
-ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages("<YOUR MAILINATOR API KEY>", "EMAIL ADDRESS");
+String apikey = "<YOUR MAILINATOR API KEY>";
+String emailAddress = "EMAIL ADDRESS";
+ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages(apikey, emailAddress);
         
         for(InboxMessage imsg : inboxMessages)
         {
@@ -18,7 +20,9 @@ ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages("<YOUR MAILI
 Access to an email (you just need the ID from the inbox message)
 
 ```java
-ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages("<YOUR MAILINATOR API KEY>", "EMAIL ADDRESS");
+String apikey = "<YOUR MAILINATOR API KEY>";
+String emailAddress = "EMAIL ADDRESS";
+ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages(apikey, emailAddress);
         
         for(InboxMessage imsg : inboxMessages)
         {
