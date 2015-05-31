@@ -2,6 +2,34 @@ Welcome to the jMailinator wiki!
 
 Mailinator REST API wrapper in Java, http://mailinator.com/apidocs.jsp
 
+## Getting started
+
+Access to an inbox and print the details of an inbox message
+
+```java
+ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages("<YOUR MAILINATOR API KEY>", "EMAIL ADDRESS");
+        
+        for(InboxMessage imsg : inboxMessages)
+        {
+             System.out.println(imsg);
+        }
+```
+
+Access to an email (you just need the ID from the inbox message)
+
+```java
+ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages("<YOUR MAILINATOR API KEY>", "EMAIL ADDRESS");
+        
+        for(InboxMessage imsg : inboxMessages)
+        {
+            System.out.println(imsg.getSubject());
+            String msgId = imsg.getId();
+            
+            Email email = Mailinator.getEmail("<YOUR MAILINATOR API KEY>", msgId);
+            System.out.println(email);
+        }
+```
+
 ## Dependencies
 
 [json-simple](https://code.google.com/p/json-simple/)
