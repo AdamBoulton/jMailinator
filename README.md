@@ -15,6 +15,9 @@ Create a Mailinator account, login, and find your token at https://www.mailinato
 Access to an inbox and print the details of an inbox message
 
 ```java
+import com.mailinator.InboxMessage;
+import com.mailinator.Mailinator;
+
 String apikey = "<YOUR MAILINATOR API KEY>";
 String emailAddress = "EMAIL ADDRESS";
 ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages(apikey, emailAddress);
@@ -28,6 +31,10 @@ ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages(apikey, emai
 Access to an email (you just need the ID from the inbox message)
 
 ```java
+import com.mailinator.Email;
+import com.mailinator.InboxMessage;
+import com.mailinator.Mailinator;
+
 String apikey = "<YOUR MAILINATOR API KEY>";
 String emailAddress = "EMAIL ADDRESS";
 ArrayList<InboxMessage> inboxMessages = Mailinator.getInboxMessages(apikey, emailAddress);
