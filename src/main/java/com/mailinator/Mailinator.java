@@ -11,6 +11,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -56,6 +57,7 @@ public class Mailinator {
             messages.add(message);
         }
 
+       Collections.reverse(messages);
         return messages;
     }
 
@@ -148,7 +150,6 @@ public class Mailinator {
         emailMsg.setHeaders(builderHeaders(jsonHeaders.entrySet()));
 
         //Parts / content
-        HashMap<String, String> parts = new HashMap<>();
         JSONArray jsonParts = (JSONArray) jsonDataSection.get("parts");
 
         for (Object jsonPart1 : jsonParts) {
