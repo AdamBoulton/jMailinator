@@ -1,8 +1,6 @@
 package com.mailinator;
 
-import com.mailinator.Email;
 import com.mailinator.Email.EmailPart;
-import com.mailinator.InboxMessage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -13,6 +11,7 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import org.json.simple.JSONArray;
@@ -41,9 +40,10 @@ public class Mailinator {
      * @param apikey - Mailinator API key
      * @param emailAddress - Email address of the account
      * @return Array of messages from the inbox
-     * @throws IOException When invalid response, for example using an invalid API key
+     * @throws IOException When invalid response, for example using an invalid
+     * API key
      */
-    public static ArrayList<InboxMessage> getInboxMessages(String apikey, String emailAddress) throws IOException {
+    public static List<InboxMessage> getInboxMessages(String apikey, String emailAddress) throws IOException {
 
         Reader reader = getInboxStream(apikey, emailAddress);
 
@@ -57,7 +57,9 @@ public class Mailinator {
             messages.add(message);
         }
 
-       Collections.reverse(messages);
+        //The messages come in the response in a reversed order, so lets give 
+        //back an ordered list
+        Collections.reverse(messages);
         return messages;
     }
 
@@ -130,12 +132,8 @@ public class Mailinator {
 
     private static Email createEmailFrom(JSONObject jsonEmail) {
         Email emailMsg = new Email();
-//        System.out.println("START RAW JSON");
-//        System.out.println(jsonEmail.toJSONString());
-//        System.out.println("END JSON");
-        emailMsg.setApiInboxFetchesLeft(Integer.valueOf(jsonEmail.get("apiInboxFetchesLeft").toString()));
+
         emailMsg.setApiEmailFetchesLeft(Integer.valueOf(jsonEmail.get("apiEmailFetchesLeft").toString()));
-        emailMsg.setForwardsLeft(Integer.valueOf(jsonEmail.get("forwardsLeft").toString()));
 
         JSONObject jsonDataSection = (JSONObject) jsonEmail.get("data");
         emailMsg.setId(jsonDataSection.get("id").toString());

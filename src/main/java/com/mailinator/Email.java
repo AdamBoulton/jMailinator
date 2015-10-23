@@ -15,9 +15,9 @@ import java.util.Set;
  */
 public class Email {
 
-    private int apiInboxFetchesLeft;
+  //  private int apiInboxFetchesLeft;
     private int apiEmailFetchesLeft;
-    private int forwardsLeft;
+  //  private int forwardsLeft;
 
     //Represents the data section in the JSON feed
     private long secondsAgo;
@@ -33,28 +33,12 @@ public class Email {
     //Represents the parts section of the email JSON feed
     private Set<EmailPart> emailParts = new HashSet<>();
 
-    public int getApiInboxFetchesLeft() {
-        return apiInboxFetchesLeft;
-    }
-
-    protected void setApiInboxFetchesLeft(int apiInboxFetchesLeft) {
-        this.apiInboxFetchesLeft = apiInboxFetchesLeft;
-    }
-
     public int getApiEmailFetchesLeft() {
         return apiEmailFetchesLeft;
     }
 
     protected void setApiEmailFetchesLeft(int apiEmailFetchesLeft) {
         this.apiEmailFetchesLeft = apiEmailFetchesLeft;
-    }
-
-    public int getForwardsLeft() {
-        return forwardsLeft;
-    }
-
-    protected void setForwardsLeft(int forwardsLeft) {
-        this.forwardsLeft = forwardsLeft;
     }
 
     public long getSecondsAgo() {
@@ -146,8 +130,7 @@ public class Email {
 
     @Override
     public String toString() {
-        return "Email{" + "apiInboxFetchesLeft=" + apiInboxFetchesLeft + ", apiEmailFetchesLeft=" + apiEmailFetchesLeft + ", forwardsLeft=" + forwardsLeft + ", secondsAgo=" + secondsAgo + ", id=" + id + ", to=" + to + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", headers=" + headers + ", emailParts=" + emailParts + '}';
+        return "Email{" + "apiEmailFetchesLeft=" + apiEmailFetchesLeft + ", secondsAgo=" + secondsAgo + ", id=" + id + ", to=" + to + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", headers=" + headers + ", emailParts=" + emailParts + '}';
     }
-    
-    
+ 
 }
