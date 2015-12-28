@@ -194,7 +194,7 @@ public class Mailinator {
         message.setSubject(jsonInboxMsg.get("subject").toString());
         message.setFromfull(jsonInboxMsg.get("fromfull").toString());
         message.setFrom(jsonInboxMsg.get("from").toString());
-        message.setBeen_read(Boolean.parseBoolean((String) jsonInboxMsg.get("been_read")));
+        message.setBeen_read((Boolean) jsonInboxMsg.get("been_read"));
         if(jsonInboxMsg.get("ip") != null) {
           message.setIp(jsonInboxMsg.get("ip").toString());
         }
