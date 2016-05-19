@@ -11,8 +11,6 @@ public class InboxMessage {
     private String id;
     private long time;
     private String subject;
-    private String fromFull;
-    private boolean beenRead;
     private String from;
     private String ip;
 
@@ -50,22 +48,6 @@ public class InboxMessage {
         this.subject = subject;
     }
 
-    public String getFromfull() {
-        return fromFull;
-    }
-
-    protected void setFromfull(String fromfull) {
-        this.fromFull = fromfull;
-    }
-
-    public boolean isBeen_read() {
-        return beenRead;
-    }
-
-    protected void setBeen_read(boolean been_read) {
-        this.beenRead = been_read;
-    }
-
     public String getFrom() {
         return from;
     }
@@ -92,7 +74,7 @@ public class InboxMessage {
 
     @Override
     public String toString() {
-        return "InboxMessage{" + "secondsAgo=" + secondsAgo + ", to=" + to + ", id=" + id + ", time=" + time + ", subject=" + subject + ", fromFull=" + fromFull + ", beenRead=" + beenRead + ", from=" + from + ", ip=" + ip + '}';
+        return "InboxMessage{" + "secondsAgo=" + secondsAgo + ", to=" + to + ", id=" + id + ", time=" + time + ", subject=" + subject + ", from=" + from + ", ip=" + ip + '}';
     }
 
 
