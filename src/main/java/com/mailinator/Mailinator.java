@@ -192,9 +192,7 @@ public class Mailinator {
         message.setSeconds_ago(Long.parseLong(jsonInboxMsg.get("seconds_ago").toString()));
         message.setTime(Long.parseLong(jsonInboxMsg.get("time").toString()));
         message.setSubject(jsonInboxMsg.get("subject").toString());
-        message.setFromfull(jsonInboxMsg.get("fromfull").toString());
-        message.setFrom(jsonInboxMsg.get("from").toString());
-        message.setBeen_read((Boolean) jsonInboxMsg.get("been_read"));
+        message.setFrom(jsonInboxMsg.get("origfrom").toString());
         if(jsonInboxMsg.get("ip") != null) {
           message.setIp(jsonInboxMsg.get("ip").toString());
         }
