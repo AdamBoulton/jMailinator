@@ -187,33 +187,40 @@ public class Mailinator {
         //  JSONObject jsonMsg = (JSONObject) jsonMsg;
 
         InboxMessage message = new InboxMessage();
-        message.setTo(jsonInboxMsg.get("to").toString());
-        message.setId(jsonInboxMsg.get("id").toString());
-        message.setSeconds_ago(Long.parseLong(jsonInboxMsg.get("seconds_ago").toString()));
-        message.setTime(Long.parseLong(jsonInboxMsg.get("time").toString()));
-        message.setSubject(jsonInboxMsg.get("subject").toString());
-        message.setFromfull(jsonInboxMsg.get("fromfull").toString());
-        message.setFrom(jsonInboxMsg.get("from").toString());
-        message.setBeen_read((Boolean) jsonInboxMsg.get("been_read"));
-        if(jsonInboxMsg.get("ip") != null) {
-          message.setIp(jsonInboxMsg.get("ip").toString());
-        }
+        message.setTo(String.valueOf(jsonInboxMsg.get("to")));
+        message.setId(String.valueOf(jsonInboxMsg.get("id")));
+        message.setSeconds_ago(Long.parseLong(String.valueOf(jsonInboxMsg.get("seconds_ago"))));
         
+        Object time = jsonInboxMsg.get("time");
+        if (time != null)
+        {
+            message.setTime(Long.parseLong(String.valueOf(time)));
+        }
+        message.setSubject(String.valueOf(jsonInboxMsg.get("subject")));
+        message.setFromfull(String.valueOf(jsonInboxMsg.get("fromfull")));
+        message.setFrom(String.valueOf(jsonInboxMsg.get("from")));
+        message.setBeen_read(Boolean.valueOf(String.valueOf(jsonInboxMsg.get("been_read"))));
+        message.setIp(String.valueOf(jsonInboxMsg.get("ip")));
+
         return message;
     }
 
     private static Email createEmailFrom(JSONObject jsonEmail) {
         Email emailMsg = new Email();
 
-        emailMsg.setApiEmailFetchesLeft(Integer.valueOf(jsonEmail.get("apiEmailFetchesLeft").toString()));
+        Object apiEmailFetchesLeft = jsonEmail.get("apiEmailFetchesLeft");
+        if (apiEmailFetchesLeft != null)
+        {
+            emailMsg.setApiEmailFetchesLeft(Integer.parseInt(String.valueOf(apiEmailFetchesLeft)));
+        }
 
         JSONObject jsonDataSection = (JSONObject) jsonEmail.get("data");
-        emailMsg.setId(jsonDataSection.get("id").toString());
-        emailMsg.setSecondsAgo(Long.valueOf(jsonDataSection.get("seconds_ago").toString()));
-        emailMsg.setTo(jsonDataSection.get("to").toString());
-        emailMsg.setTime(Long.valueOf(jsonDataSection.get("time").toString()));
-        emailMsg.setSubject(jsonDataSection.get("subject").toString());
-        emailMsg.setFromFull(jsonDataSection.get("fromfull").toString());
+        emailMsg.setId(String.valueOf(jsonDataSection.get("id")));
+        emailMsg.setSecondsAgo(Long.valueOf(String.valueOf(jsonDataSection.get("seconds_ago"))));
+        emailMsg.setTo(String.valueOf(jsonDataSection.get("to")));
+        emailMsg.setTime(Long.valueOf(String.valueOf(jsonDataSection.get("time"))));
+        emailMsg.setSubject(String.valueOf(jsonDataSection.get("subject")));
+        emailMsg.setFromFull(String.valueOf(jsonDataSection.get("fromfull")));
 
         //headers
         JSONObject jsonHeaders = (JSONObject) jsonDataSection.get("headers");
